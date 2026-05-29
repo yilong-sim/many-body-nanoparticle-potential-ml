@@ -1,0 +1,54 @@
+#Hybrid system equilibration and replication#
+units	lj
+atom_style	full
+processors * * * map xyz
+boundary	p p p
+
+#neigh_modify every 1 delay 1  check yes one 10000 page 10000000000
+
+read_data lammps.input
+
+pair_style      mbx 12
+pair_modify     mix arithmetic
+
+bond_style      none
+angle_style     none
+dihedral_style  none
+improper_style  none
+
+
+pair_coeff      * * 0.0 0.0
+
+neighbor	2.0 bin
+neigh_modify	every 1 delay 10
+
+compute         mbx all pair mbx
+
+#pair_style table linear 1501
+#pair_coeff * * PMF.table DM_PMF
+
+group NPc type 1
+
+velocity all set 0.0 0.0 0.0 units box
+velocity NPc create 1.0 345644 rot yes dist gaussian loop geom
+
+timestep        0.02
+dump            1 all custom 10000 dump1.lammpstrj mol id type x y z
+
+thermo      1000
+thermo_style custom step temp vol press ke pe etotal pxy pxz pyz
+
+fix             2 all mbx 1 125 p json mbx.json
+
+#fix n1 NPc nvt temp 1.0 1.0 1.0
+fix n1 NPc langevin 1.0 1.0 2.0 699483
+fix n2 NPc nve
+#fix             3 all momentum 100 linear 1 1 1 rescale
+
+#pair_write 1 1 1501 r 6.000  21.000 table.txt DM
+#--------------------------------------------------------------------------------------------------------------------------------
+run 200000000
+write_restart restart0.equil
+
+
+
