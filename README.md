@@ -103,8 +103,9 @@ The three-body term is what makes the difference.
 
 ### Assembly dynamics
 
-![Validation comparison](figures/validation_string_gamma0.3.gif)
-*Validation — CG · many-body potential · two-body only (Γg = 0.3)*
+| CG (ground truth) | Many-body potential | Two-body only |
+|---|---|---|
+| ![CG](figures/assembly_cg_strings.gif) | ![MB](figures/assembly_mb_strings.gif) | ![2B](figures/assembly_2b_strings.gif) |
 
 ![1D string assembly](figures/assembly_strings_125NP.gif)
 *125 NPs assembling into 1D strings (Γg = 0.3 chains/σ²)*
@@ -154,7 +155,9 @@ figures/
   fig3_pmf_fitting_results.png
   fig4_assembly_comparison.png
   parity_plot_gamma0.3.png
-  validation_string_gamma0.3.gif
+  assembly_cg_strings.gif
+  assembly_mb_strings.gif
+  assembly_2b_strings.gif
   assembly_strings_125NP.gif
   assembly_sheets_125NP.gif
 ```
