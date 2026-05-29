@@ -1,4 +1,4 @@
-# Many-body potential for simulating nanoparticle self-assembly
+# Many-body potential via machine learning for simulating nanoparticle self-assembly
 
 Physics-informed ML surrogate that reproduces the assembly behavior of
 polymer-grafted nanoparticles at **3 orders of magnitude lower cost**
