@@ -16,7 +16,7 @@ or 3D aggregates depending on grafting density — but capturing this in
 simulation requires explicitly modeling ~50,000 polymer degrees of freedom,
 which is computationally prohibitive at relevant length and time scales.
 
-This project develops an analytical many-body potential that integrates out
+This project develops a ML many-body potential that integrates out
 all polymer degrees of freedom, reducing the system to N interacting point
 particles while preserving the physics that drives anisotropic assembly.
 The key insight: two-body interactions alone predict the wrong structure.
